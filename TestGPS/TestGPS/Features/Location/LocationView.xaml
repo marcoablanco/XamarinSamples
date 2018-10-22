@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TestGPS" 
+             x:Class="TestGPS.Features.Location.LocationView">
+    <StackLayout>
+        <Grid>
+            <Grid.TranslationY>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS" Value="20"/>
+                </OnPlatform>
+            </Grid.TranslationY>
+            <Label x:Name="LblPositionTitle" 
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="Detail position:" FontAttributes="Bold" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            
+            <Label x:Name="LblLatitude" 
+                   Grid.Row="1" Grid.Column="0"
+                   Text="Latitude:"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            
+            <Label x:Name="LblLongitude" 
+                   Grid.Row="2" Grid.Column="0"
+                   Text="Longitude:"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            
+            <Label x:Name="LblLatitudeValue" 
+                   Grid.Row="1" Grid.Column="1"
+                   Text="{Binding Latitude}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            
+            <Label x:Name="LblLongitudeValue" 
+                   Grid.Row="2" Grid.Column="1"
+                   Text="{Binding Longitude}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
