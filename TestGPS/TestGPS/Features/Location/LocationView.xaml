@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TestGPS" 
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="TestGPS.Features.Location.LocationView">
     <StackLayout>
+        <StackLayout.TranslationY>
+            <OnPlatform x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="20"/>
+            </OnPlatform>
+        </StackLayout.TranslationY>
         <Grid>
-            <Grid.TranslationY>
-                <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="iOS" Value="20"/>
-                </OnPlatform>
-            </Grid.TranslationY>
             <Label x:Name="LblPositionTitle" 
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                    Text="Detail position:" FontAttributes="Bold" 
@@ -35,5 +36,7 @@
                    Text="{Binding Longitude}"
                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </Grid>
+        <map:Map x:Name="MainMap"
+                 MapType="Street"/>
     </StackLayout>
 </ContentPage>
